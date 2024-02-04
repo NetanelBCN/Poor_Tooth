@@ -10,7 +10,11 @@ Poor Tooth Game is an entertaining Android game where the player controls a toot
 
 
 
-https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/6de35e7b-a303-4a4f-b284-9e5e42529693 
+
+https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/2b0df803-02df-4407-b6ca-48bbca1a9685
+
+
+
 ![image](https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/79aa6a33-47e5-4fa2-b5e8-698ec64a3125)
 
 ![image](https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/c5f06e6e-f74b-4fc5-953c-853cd5793bd1)
