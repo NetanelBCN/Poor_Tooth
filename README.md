@@ -6,7 +6,8 @@
 Poor Tooth Game is an entertaining Android game where the player controls a tooth that is trying to escape from an invasion of candies. The tooth must navigate through the dental environment, avoiding candies to maintain good dental health.
 
 
-## Logo![Logo](https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/03582b8a-5a34-426b-9df6-5ca16b33e0b1)
+## Logo ![image](https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/7fc07207-1416-4392-aa54-bd3f0249915d)
+
 
 
 ## Game Objects
