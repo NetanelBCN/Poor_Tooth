@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@drawable/ic_launcher_background"
+    tools:context=".StartingActivity">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/start_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/STARTING_LLC_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/marginTitle"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="@string/Poor_Tooth"
+            android:textColor="@color/yellow"
+            android:textSize="50sp"
+
+            android:textStyle="bold|italic" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/STARTING_LLC_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginVertical="16dp"
+        android:layout_marginTop="@dimen/marginTitle"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/STARTING_MTV_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:text="Mode: Buttons"
+            android:textColor="@color/yellow"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/STARTING_LLC_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/STARTING_BTN_slow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_default"
+            android:text="@string/slow_mode"
+            android:textSize="24dp"
+            android:textStyle="italic"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/STARTING_BTN_fast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_default"
+            android:text="@string/fast_mode"
+            android:textSize="24dp"
+            android:textStyle="italic"/>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <RelativeLayout
+        android:id="@+id/STARTING_RL_switch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/STARTING_LLC_mode"
+        android:layout_centerInParent="true"
+        android:layout_marginVertical="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/STARTING_BTN_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="32dp"
+            android:text="@string/change_mode"
+            android:textSize="24dp" />
+        />
+    </RelativeLayout>
+
+
+</RelativeLayout>

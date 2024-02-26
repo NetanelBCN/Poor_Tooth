@@ -1,11 +1,11 @@
-package com.example.hw1.Logic;
+package com.example.hw1.Models;
 
-public class gameObject {
+public class GameObject {
     String type;
     public String getType() {
         return type;
     }
-    public gameObject(String type) {
+    public GameObject(String type) {
         this.type = type;
     }
 }
