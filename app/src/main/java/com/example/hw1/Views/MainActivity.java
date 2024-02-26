@@ -1,21 +1,20 @@
-package com.example.hw1;
+package com.example.hw1.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
-import androidx.appcompat.widget.LinearLayoutCompat;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-import android.util.Log;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.hw1.Logic.GameManager;
+import com.example.hw1.R;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
 
@@ -117,7 +116,14 @@ public class MainActivity extends AppCompatActivity {
                 gameManager.setHitAppleFlag(false);
             }
 
-//            if (gameManager.gameLost()) System.out.println("YOU LOST");// will help in part 2
+            if (gameManager.gameLost()){
+                System.out.println("YOU LOST");// will help in part 2
+                Intent intent=new Intent(this, ScoreActivity.class);
+                startActivity(intent);
+                finish();
+
+                 }
+
         }
     }
 

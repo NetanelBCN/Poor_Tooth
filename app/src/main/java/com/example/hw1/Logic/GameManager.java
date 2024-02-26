@@ -197,9 +197,9 @@ public class GameManager {
         }
         addRandomObj();
     }
-//    public boolean gameLost() { // In Part Two It Will help to Stop The game Main Activity.
-//        return this.getCrashCount() == this.getLife();
-//    }
+    public boolean gameLost() {
+        return this.getCrashCount() == this.getLife();
+    }
 
 }
 

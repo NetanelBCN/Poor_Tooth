@@ -8,4 +8,5 @@
     <string name="SENSOR_ON">Mode: Sensors</string>
     <string name="change_mode">change Mode</string>
     <string name="score">Score: 0</string>
+    <string name="playerscore">Score:</string>
 </resources>

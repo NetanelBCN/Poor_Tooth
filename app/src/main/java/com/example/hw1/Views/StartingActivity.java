@@ -1,16 +1,13 @@
-package com.example.hw1;
+package com.example.hw1.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.LinearLayoutCompat;
-import androidx.appcompat.widget.SwitchCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
+import com.example.hw1.R;
+import com.example.hw1.Views.MainActivity;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
