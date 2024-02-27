@@ -34,20 +34,20 @@ public class ScoreActivity extends AppCompatActivity {
         mapFragment = new MapFragment();
         listFragment = new ScoreListFragment();
         getIntents();
-        Log.d("latt", currentPlayer.getLat() + "");
-        Log.d("lonn", currentPlayer.getLon() + "");
         listFragment.updateData(currentPlayer);
         listFragment.save();
         listFragment.getAdapter().setPlayerCallback((player, position) -> mapFragment.focusOnLocation(new LatLng(player.getLat(), player.getLon())));
         getSupportFragmentManager().beginTransaction().add(R.id.SCORE_FL_list, listFragment).commit();
         getSupportFragmentManager().beginTransaction().add(R.id.SCORE_FL_map, mapFragment).commit();
     }
+
     private void getIntents() {
         int currentScore = getIntent().getIntExtra("score", 0);
         double lat = getIntent().getDoubleExtra("lat", DEFAULT_LAT);
         double lon = getIntent().getDoubleExtra("lon", DEFAULT_LON);
-        currentPlayer=new Player().setScore(currentScore).setLat(lat).setLon(lon);
+        currentPlayer = new Player().setScore(currentScore).setLat(lat).setLon(lon);
     }
+
     private void findViews() {
         SCORE_FL_list = findViewById(R.id.SCORE_FL_list);
         SCORE_FL_map = findViewById(R.id.SCORE_FL_map);

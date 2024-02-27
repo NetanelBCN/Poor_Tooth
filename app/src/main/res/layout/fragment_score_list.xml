@@ -5,12 +5,34 @@
     android:layout_height="match_parent"
     android:background="@color/pink"
     tools:context=".FragmentViews.ScoreListFragment">
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@color/blue"
+        android:layout_marginBottom="10dp">
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:text="@string/top_10"
+        android:textStyle="italic|bold"
+        android:layout_marginTop="24dp"
+        android:textColor="@color/white"
+        android:textSize="30sp"/>
+    </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/FRAGSCORE_RV_recycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:padding="5dp"
         />
+</androidx.appcompat.widget.LinearLayoutCompat>
 
 </RelativeLayout>

@@ -19,6 +19,8 @@ public class MyLocationManager {
     private double userLat;
     private double userLon;
     private Context context;
+    public final double DEFAULT_LAT = 31.771959;
+    public final double DEFAULT_LON = 35.217018;
 
     public MyLocationManager(Context context) {
         this.context = context;
@@ -63,6 +65,8 @@ public class MyLocationManager {
     private void ListenToLocation() {
         locationManager = (android.location.LocationManager) this.context.getSystemService(Context.LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(this.context, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this.context, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            userLat = DEFAULT_LAT;
+            userLon = DEFAULT_LON;
             return;
         } else {
             locationGPS = locationManager.getLastKnownLocation(android.location.LocationManager.GPS_PROVIDER);
