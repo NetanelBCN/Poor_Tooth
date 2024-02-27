@@ -40,7 +40,6 @@ public class ScoreActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.SCORE_FL_list, listFragment).commit();
         getSupportFragmentManager().beginTransaction().add(R.id.SCORE_FL_map, mapFragment).commit();
     }
-
     private void getIntents() {
         int currentScore = getIntent().getIntExtra("score", 0);
         double lat = getIntent().getDoubleExtra("lat", DEFAULT_LAT);

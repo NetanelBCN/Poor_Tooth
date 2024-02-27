@@ -1,6 +1,6 @@
 package com.example.hw1.FragmentViews;
 
-import com.example.hw1.Models.Player;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -28,6 +28,10 @@ import java.util.List;
 
 public class MapFragment extends Fragment implements OnMapReadyCallback {
     private GoogleMap myGoogleMap;
+    public final double DEFAULT_LAT = 31.771959;
+    public final double DEFAULT_LON = 35.217018;
+    private LatLng DEFAULT_LOC = new LatLng(DEFAULT_LAT, DEFAULT_LON);
+    private MarkerOptions markerOptions;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,13 +50,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(@NonNull GoogleMap googleMap) {
         this.myGoogleMap = googleMap;
-        LatLng location = new LatLng(31.771959, 35.217018);
-        focusOnLocation(location);
+        markerOptions = new MarkerOptions();
+        focusOnLocation(DEFAULT_LOC);
+        myGoogleMap.addMarker(markerOptions);
     }
 
     public void focusOnLocation(LatLng location) {
-        myGoogleMap.addMarker(new MarkerOptions().position(location).title(getLocationString(location)));
+        myGoogleMap.clear();
+        markerOptions.position(location).title((getLocationString(location)));
         myGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
+        myGoogleMap.addMarker(markerOptions);
     }
 
     public String getLocationString(LatLng location) {
@@ -64,7 +71,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
             if (list != null && list.size() > 0) {
                 Address address = list.get(0);
-                result=address.getLocality()+", "+address.getCountryName();
+                result = address.getLocality() + ", " + address.getCountryName();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -72,8 +79,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         return result;
     }
-
-
     @NonNull
     @Override
     public CreationExtras getDefaultViewModelCreationExtras() {
