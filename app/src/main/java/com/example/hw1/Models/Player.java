@@ -2,7 +2,6 @@ package com.example.hw1.Models;
 
 public class Player {
 
-    private String name;
     private int score=0;
     private double lat;
     private double lon;
@@ -11,14 +10,8 @@ public class Player {
 
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public Player setName(String name) {
-        this.name = name;
-        return this;
-    }
+
 
     public int getScore() {
         return score;

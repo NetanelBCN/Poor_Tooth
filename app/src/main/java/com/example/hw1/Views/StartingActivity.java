@@ -43,7 +43,6 @@ public class StartingActivity extends AppCompatActivity {
                 STARTING_MTV_mode.setText(R.string.SENSOR_OFF);
         });
     }
-
     private void startGameActivity(int speed) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("speed", speed);
@@ -64,6 +63,5 @@ public class StartingActivity extends AppCompatActivity {
         STARTING_MTV_mode = findViewById(R.id.STARTING_MTV_mode);
         STARTING_BTN_mode=findViewById(R.id.STARTING_BTN_mode);
         start_bg=findViewById(R.id.start_bg);
-
     }
 }

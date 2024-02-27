@@ -7,11 +7,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.LinearLayoutCompat;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hw1.Interfaces.PlayerCallback;
 import com.example.hw1.Models.Player;
 import com.example.hw1.R;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
@@ -29,7 +31,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerView
         this.players = players;
     }
 
-    public PlayerAdapter setMovieCallback(PlayerCallback playerCallback) {
+    public PlayerAdapter setPlayerCallback(PlayerCallback playerCallback) {
         this.playerCallback = playerCallback;
         return this;
     }
@@ -60,7 +62,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<PlayerAdapter.PlayerView
 
     public class PlayerViewHolder extends RecyclerView.ViewHolder {
         ////////
-        private LinearLayoutCompat SCORE_LLC_card;
+        private MaterialCardView SCORE_LLC_card;
         private MaterialTextView SCORE_MTV_rank;
         private MaterialTextView SCORE_MTV_score;
 

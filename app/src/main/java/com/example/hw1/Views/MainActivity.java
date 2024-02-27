@@ -2,9 +2,13 @@ package com.example.hw1.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.VibrationEffect;
@@ -15,6 +19,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.hw1.Logic.GameManager;
 import com.example.hw1.R;
+import com.example.hw1.Utilities.MyLocationManager;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
 
@@ -23,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public static int COLS = 5;
     public static int LIVES = 3;
     private GameManager gameManager;
+    private MyLocationManager myLocationManager;
     private ShapeableImageView[][] main_SIV;
     private AppCompatImageButton main_left_arrow;
     private AppCompatImageButton main_right_arrow;
@@ -35,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     private MaterialTextView main_MTV_score;
     private boolean isRunning = true;
     private boolean isSensorOn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,16 +48,14 @@ public class MainActivity extends AppCompatActivity {
         findViews();
         getIntents();
         loadBackground();
-
+        myLocationManager = new MyLocationManager(this);
+        myLocationManager.askLocationPermissions(this);
         gameManager = new GameManager().setLife(LIVES).setLocationMatrix(ROWS, COLS);
         main_left_arrow.setOnClickListener(view -> goLeft());
         main_right_arrow.setOnClickListener(view -> goRight());
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-
         refreshUI();
-
     }
-
     private void loadBackground() {
         Glide.with(this)
                 .load(R.drawable.mouth)
@@ -60,12 +63,10 @@ public class MainActivity extends AppCompatActivity {
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(main_bg);
     }
-
     private void getIntents() {
         speed = getIntent().getIntExtra("speed", speed);
         isSensorOn = getIntent().getBooleanExtra("isSensorOn", false);
     }
-
     private void startGameLoop() {
         handler.postDelayed(new Runnable() {
             @Override
@@ -79,12 +80,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }, speed);
     }
-
     private void goRight() {
         gameManager.moveTooth("Right");
         refreshUI();
     }
-
     private void goLeft() {
         gameManager.moveTooth("Left");
         refreshUI();
@@ -94,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
 
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLS; j++) {
-
                 if (gameManager.getLocationMatrix()[i][j].getType().equals("Candy"))
                     main_SIV[i][j].setImageResource(R.drawable.candy_sugar_svgrepo_com);
                 else if (gameManager.getLocationMatrix()[i][j].getType().equals("Apple"))
@@ -115,37 +113,40 @@ public class MainActivity extends AppCompatActivity {
                 main_MTV_score.setText("Score: " + gameManager.currentGameScore);
                 gameManager.setHitAppleFlag(false);
             }
-
-            if (gameManager.gameLost()){
-                System.out.println("YOU LOST");// will help in part 2
-                Intent intent=new Intent(this, ScoreActivity.class);
+            if (gameManager.gameLost()) {
+                myLocationManager.findUserLocation();
+                Intent intent = new Intent(this, ScoreActivity.class);
+                intent.putExtra("score", gameManager.currentGameScore);
+                intent.putExtra("lat", myLocationManager.getUserLat());
+                intent.putExtra("lon", myLocationManager.getUserLon());
                 startActivity(intent);
                 finish();
-
-                 }
-
+            }
         }
     }
-
     @Override
     protected void onStop() {
         super.onStop();
         isRunning = false;
     }
-
     @Override
     protected void onPause() {
         super.onPause();
         isRunning = false;
     }
-
     @Override
     protected void onResume() {
         super.onResume();
         isRunning = true;
         startGameLoop();
     }
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (myLocationManager.getLocationManager() != null && myLocationManager.getLocationListener() != null) {
+            myLocationManager.destroyUpdates();
+        }
+    }
     public void findViews() {
         main_SIV = new ShapeableImageView[][]{
                 {findViewById(R.id.main_SIV_00), findViewById(R.id.main_SIV_01), findViewById(R.id.main_SIV_02), findViewById(R.id.main_SIV_03), findViewById(R.id.main_SIV_04)},
