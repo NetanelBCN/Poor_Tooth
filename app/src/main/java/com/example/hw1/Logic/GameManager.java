@@ -33,12 +33,10 @@ public class GameManager {
 
     public GameManager() {
     }
-
     public GameManager setLife(int life) {
         this.life = life;
         return this;
     }
-
     public GameManager setLocationMatrix(int rows, int cols) {
         hitCandyFlag = false;
         lastRnd = new int[cols];
@@ -58,7 +56,6 @@ public class GameManager {
     public int getLife() {
         return life;
     }
-
     public void hit(GameObject object) {//should be changed in part 2 now the game is infinite...
         if (object.getType().equals("Candy")) {
             if (getCrashCount() < 3)
@@ -69,7 +66,6 @@ public class GameManager {
             hitAppleFlag = true;
         }
     }
-
     public void setHitCandyFlag(boolean hitCandyFlag) {
         this.hitCandyFlag = hitCandyFlag;
     }
@@ -77,15 +73,12 @@ public class GameManager {
     public void setHitAppleFlag(boolean hitAppleFlag) {
         this.hitAppleFlag = hitAppleFlag;
     }
-
     public boolean isHitCandyFlag() {
         return hitCandyFlag;
     }
-
     public boolean isHitAppleFlag() {
         return hitAppleFlag;
     }
-
     public void addRandomObj() {
         int type = (Math.random() <= 0.5) ? 1 : 2; // randomizing the numbers with same prob.
         int num = randomIndex(this.locationMatrix[0].length);

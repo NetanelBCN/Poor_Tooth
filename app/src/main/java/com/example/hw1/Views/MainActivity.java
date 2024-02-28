@@ -2,20 +2,14 @@ package com.example.hw1.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageButton;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.view.View;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.example.hw1.Interfaces.MoveCallback;
 import com.example.hw1.Logic.GameManager;
@@ -37,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private AppCompatImageButton main_left_arrow;
     private AppCompatImageButton main_right_arrow;
     private ShapeableImageView main_bg;
-    private final int DELAY = 1000;
     private int speed = 0;
     public static Handler handler = new Handler();
     public Vibrator vibrator;
@@ -66,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         refreshUI();
     }
-
     private void enableMovement() {
         if (!isSensorOn) {
             main_left_arrow.setOnClickListener(view -> goLeft());
@@ -79,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
                         goRight();
                     else goLeft();
                 }
-
                 @Override
                 public void moveY(String speedY) {
                     if (speedY.equals("Fast")) {
@@ -90,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
             });
         }
     }
-
     private void loadBackground() {
         Glide.with(this)
                 .load(R.drawable.mouth)
@@ -98,12 +88,10 @@ public class MainActivity extends AppCompatActivity {
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(main_bg);
     }
-
     private void getIntents() {
         speed = getIntent().getIntExtra("speed", speed);
         isSensorOn = getIntent().getBooleanExtra("isSensorOn", false);
     }
-
     private void startGameLoop() {
         handler.postDelayed(new Runnable() {
             @Override
@@ -117,17 +105,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }, speed);
     }
-
     private void goRight() {
         gameManager.moveTooth("Right");
         refreshUI();
     }
-
     private void goLeft() {
         gameManager.moveTooth("Left");
         refreshUI();
     }
-
     private void refreshUI() {
 
         for (int i = 0; i < ROWS; i++) {
@@ -165,13 +150,11 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
     @Override
     protected void onStop() {
         super.onStop();
         isRunning = false;
     }
-
     @Override
     protected void onPause() {
         super.onPause();
@@ -179,7 +162,6 @@ public class MainActivity extends AppCompatActivity {
             movementDetector.stop();
         isRunning = false;
     }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -188,7 +170,6 @@ public class MainActivity extends AppCompatActivity {
             movementDetector.start();
         startGameLoop();
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -196,7 +177,6 @@ public class MainActivity extends AppCompatActivity {
             myLocationManager.destroyUpdates();
         }
     }
-
     public void findViews() {
         main_SIV = new ShapeableImageView[][]{
                 {findViewById(R.id.main_SIV_00), findViewById(R.id.main_SIV_01), findViewById(R.id.main_SIV_02), findViewById(R.id.main_SIV_03), findViewById(R.id.main_SIV_04)},

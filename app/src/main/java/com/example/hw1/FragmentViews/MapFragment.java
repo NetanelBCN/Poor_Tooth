@@ -51,24 +51,23 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(@NonNull GoogleMap googleMap) {
         this.myGoogleMap = googleMap;
         markerOptions = new MarkerOptions();
-        focusOnLocation(DEFAULT_LOC);
-        myGoogleMap.addMarker(markerOptions);
+        this.myGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(DEFAULT_LOC, 12));
     }
 
     public void focusOnLocation(LatLng location) {
-        myGoogleMap.clear();
+        if (this.myGoogleMap == null)
+            return;
+        this.myGoogleMap.clear();
         markerOptions.position(location).title((getLocationString(location)));
-        myGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
-        myGoogleMap.addMarker(markerOptions);
+        this.myGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 15));
+        this.myGoogleMap.addMarker(markerOptions);
     }
 
     public String getLocationString(LatLng location) {
         Geocoder geoCoder = new Geocoder(requireContext()); // or getParentFragment().requireContext() depending on your setup
         String result = "Unknown location";
-
         try {
             List<Address> list = geoCoder.getFromLocation(location.latitude, location.longitude, 1);
-
             if (list != null && list.size() > 0) {
                 Address address = list.get(0);
                 result = address.getLocality() + ", " + address.getCountryName();
@@ -76,9 +75,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return result;
     }
+
     @NonNull
     @Override
     public CreationExtras getDefaultViewModelCreationExtras() {
