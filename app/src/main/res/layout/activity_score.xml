@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Views.ScoreActivity"
+    android:orientation="vertical"
+    android:background="@color/green">
+
+
+    <FrameLayout
+        android:id="@+id/SCORE_FL_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="8dp"
+        >
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/SCORE_FL_map"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+       android:layout_marginVertical="8dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_weight="1">
+    </FrameLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
