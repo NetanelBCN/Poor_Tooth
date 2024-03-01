@@ -38,28 +38,19 @@ Poor Tooth Game is an entertaining Android game where the player controls a toot
 ![yehudmap](https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/4d88cdcf-d104-449d-af60-0a9e9b18e1bc)
 
 
-https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/9ae90646-9de9-44f0-97b5-dc77e7306bae
-
-
-
-
-
-
-
-
-
-
 
 
 ## Features
 ## Features
 
 - **Intuitive Controls**: Simple and easy-to-use controls for an enjoyable gaming experience.
+- **Sensor Mode**: Use your phone's sensors to move your tooth by tilting the screen around the X-axis - you can also control the game's speed by tilting the phone around the Y-axis.
+
 
 
 - **Interactive Gameplay**:
-  - *Randomly Generated Candies*: Experience dynamic gameplay with candies that spawn randomly, adding an element of surprise and challenge.
-  - *Realistic Physics*: Watch as candies gracefully descend from the top of the screen, providing a visually engaging experience.
+  - *Randomly Generated Candies and Apples *: Experience dynamic gameplay with candies that spawn randomly, adding an element of surprise and challenge.
+  - *Realistic Physics*: Watch as candies and apples gracefully descend from the top of the screen, providing a visually engaging experience.
 
 - **Immersive Feedback**:
   - *Vibrations*: Feel the action with haptic feedback as your tooth collides with candies, enhancing the overall gaming sensation.
@@ -67,7 +58,12 @@ https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/9ae90646-9de9-44f0-97b
 
 - **Heart Lives System**:
   - *Life Mechanism*: Lose a heart life each time your tooth collides with a candy, intensifying the stakes and encouraging strategic gameplay.
-
+  - *Score Mechanism*: Gain 5 points each time  your tooth collides with an apple.
+    
+- **Score & Location System**:
+  - *Score System*: See your best 10 score.
+  - *Score Mechanism*: Tap on your score to see what was your location at that time.
+  
 - **Engaging User Experience**:
   - *Responsive Design*: Enjoy seamless gameplay on a variety of Android devices with a responsive and adaptable design.
  
