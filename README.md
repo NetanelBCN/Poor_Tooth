@@ -24,9 +24,18 @@ Poor Tooth Game is an entertaining Android game where the player controls a toot
 
 
 ## Watch Me!
+# Starting Screen:
 
-![image](https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/bebf82ba-33f3-48bf-8692-0b3b69acb050)               ![image](https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/00812da6-deaa-4d55-b994-537cb38cfe70)                    ![image](https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/35e3d443-7154-470d-8569-f907abdaa022)
-  
+![sensor opening](https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/5050c6bb-fc8d-4717-a807-f3e4e51d6b01)   ![button opening](https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/7960d6de-b683-4648-95ae-0a12f4b5e783)
+
+# Game Main Screen:
+
+![sensorgame](https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/496e565f-e451-48a9-b80a-7f9d82bad809)   ![btngame](https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/7c034c2e-d95b-48d6-b377-85d4e7c2d38b)
+
+# Top-10 Score Screen:
+![startmao](https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/3e56fee1-0e1e-48b4-9845-77dc29a63810)
+
+![yehudmap](https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/4d88cdcf-d104-449d-af60-0a9e9b18e1bc)
 
 
 https://github.com/NetanelBCN/Poor_Tooth/assets/134021385/9ae90646-9de9-44f0-97b5-dc77e7306bae
